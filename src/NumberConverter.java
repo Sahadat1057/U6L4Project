@@ -32,16 +32,31 @@ public class NumberConverter {
     }
 
     public int[] convertToBinary() {
+        String binary = "";
         if(base != 2) {
             if (base == 10) {
-                int counter = 0;
-                for (int i = 0; number >= 2; counter++ ) {
+               while (number > 2) {
+                   number = number / 2;
+                   remainder = number % 2;
+                   if (remainder == 0) {
+                        binary += "0";
+                   }
+                   else if (remainder == 1) {
+                       binary += "1";
+                   }
+               }
+               return binary;
+            }
+            if (base == 8) {
+                while (number > 2) {
                     number = number / 2;
-                }
-                int r = number - b;
-               double b = Math.pow(2, counter);
-                while (int r != 0 && counter < ) {
-                    int r = number - b;
+                    remainder = number % 2;
+                    if (remainder == 0) {
+                        binary += "0";
+                    }
+                    else if (remainder == 1) {
+                        binary += "1";
+                    }
                 }
             }
 
