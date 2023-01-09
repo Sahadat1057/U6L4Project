@@ -31,7 +31,7 @@ public class NumberConverter {
         return null;
     }
 
-    public int[] convertToBinary() {
+    public int[] convertToBinary(int number) {
         String binary = "";
         if(base != 2) {
             if (base == 10) {
@@ -45,7 +45,12 @@ public class NumberConverter {
                        binary += "1";
                    }
                }
-               return binary;
+
+               for(int i = 0; i < binary.length(); i++) {
+                   String binaryDigit = binary.substring(i,i+1);
+                   int [] binaryDigits = binaryDigit.add();
+
+               }
             }
             if (base == 8) {
                 while (number > 2) {
