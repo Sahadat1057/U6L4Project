@@ -1,7 +1,6 @@
 public class NumberConverter {
     int[] digits;
     int base;
-    int number;
 
     public NumberConverter(int number, int base) {
         String numberAsString = Integer.toString(number);
@@ -31,45 +30,30 @@ public class NumberConverter {
         return null;
     }
 
-    public int[] convertToBinary(int number) {
-        String binary = "";
-        if(base != 2) {
-            if (base == 10) {
-               while (number > 2) {
-                   number = number / 2;
-                   remainder = number % 2;
-                   if (remainder == 0) {
-                        binary += "0";
-                   }
-                   else if (remainder == 1) {
-                       binary += "1";
-                   }
-               }
-
-               for(int i = 0; i < binary.length(); i++) {
-                   String binaryDigit = binary.substring(i,i+1);
-                   int [] binaryDigits = binaryDigit.add();
-
-               }
-            }
-            if (base == 8) {
-                while (number > 2) {
-                    number = number / 2;
-                    remainder = number % 2;
-                    if (remainder == 0) {
-                        binary += "0";
-                    }
-                    else if (remainder == 1) {
-                        binary += "1";
-                    }
-                }
-            }
-
-        }
+    public int[] convertToBinary() {
+        return null;
     }
 
     public int[] convertToOctal() {
         return null;
     }
+
+    public String stringListToString(String[] stringList) {
+        String numString = "";
+        for (int i = 0; i < stringList.length; i++) {
+            numString = numString + stringList[i];
+        }
+        return numString;
+    }
+
+    public String[] stringToStringList(String numString) {
+        String[] numList = new String[numString.length()];
+        for (int i = 0; i < numString.length(); i++) {
+            String num = numString.substring(i,i+1);
+            numList[i] = num;
+        }
+        return numList;
+    }
+
 
 }
