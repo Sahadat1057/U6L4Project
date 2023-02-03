@@ -26,8 +26,18 @@ public class NumberConverter {
         return digits;
     }
 
-    public int[] convertToDecimal() {
-        return null;
+    public String[] convertToDecimal() {
+        String[] decimalDigits;
+        String possibleVals = "0123456789ABCDEF";
+        int decimalVal = 0;
+        int value = 1;
+        for (int i = digits.length - 1; i >= 0; i--) {
+            decimalVal += value * possibleVals.indexOf(digits[i]);
+            value *= base;
+        }
+        String numString = decimalVal + "";
+        decimalDigits = stringToStringList(numString);
+        return decimalDigits;
     }
 
     public int[] convertToBinary() {
@@ -54,6 +64,25 @@ public class NumberConverter {
         }
         return numList;
     }
+
+    public boolean checkInputs(int base, String num) {
+        String digit = "";
+        String possibleValues = "0123456789ABCDEF";
+        String availableBaseValues = possibleValues.substring(0,base);
+        String[] numList = new String[num.length()];
+        for (int i = 0; i < numList.length; i++) {
+            numList[i] = num.substring(i,i+1);
+            digit = num.substring(i,i+1);
+        }
+        for (int i = 0; i < numList.length; i++) {
+            if (availableBaseValues.indexOf(digit) < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
 
 }
