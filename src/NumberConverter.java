@@ -137,6 +137,17 @@ public class NumberConverter {
         return true;
     }
 
+    public static boolean numIsInRange(int min, int max, String num){
+        String numbers = "1234567890";
+        for (int i = 0; i < num.length(); i++){
+            if (numbers.indexOf(num.substring(i, i + 1)) == -1) return false;
+        }
+        if (Integer.parseInt(num) > max) return false;
+        else if (Integer.parseInt(num) < min) return false;
+        return true;
+    }
+
+
     public static String convertToBase64(int decimal, int base) {
         String base64Val = "";
         if (base == 1) {
@@ -166,9 +177,9 @@ public class NumberConverter {
 
     public String toString() {
         String str = "";
-        if (base != 2) str += "Binary Value: " +  convertToBase64(Integer.parseInt(stringListToString(convertToDecimal())), 2) + "\r";
-        if (base != 8) str +=  "Octal Value: " + convertToBase64(Integer.parseInt(stringListToString(convertToDecimal())),8) + "\r";
-        if (base != 10) str += "Decimal Value: " + convertToBase64(Integer.parseInt(stringListToString(convertToDecimal())),10) + "\r";
+        if (base != 2) str += "Binary Value: " +  convertToBase64(Integer.parseInt(stringListToString(convertToDecimal())), 2) + "\n";
+        if (base != 8) str +=  "Octal Value: " + convertToBase64(Integer.parseInt(stringListToString(convertToDecimal())),8) + "\n";
+        if (base != 10) str += "Decimal Value: " + convertToBase64(Integer.parseInt(stringListToString(convertToDecimal())),10) + "\n";
         if (base != 16) str += "Hexadecimal Value: " + convertToBase64(Integer.parseInt(stringListToString(convertToDecimal())),16);
         return str;
     }
